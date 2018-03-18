@@ -1,4 +1,4 @@
-package rest;
+package spring;
 
 public class Direction {
 
