@@ -8,9 +8,9 @@ public class PioneerRobot {
 
     private static ArRobot robot = new ArRobot();
 
-    public PioneerRobot() {
+    public PioneerRobot(String[] argv) {
         Aria.init();
-        ArSimpleConnector conn = new ArSimpleConnector(new String[]{"COM1"});
+        ArSimpleConnector conn = new ArSimpleConnector(argv);
 
         if(!Aria.parseArgs())
         {
