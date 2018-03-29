@@ -1,5 +1,6 @@
 package spring;
 
+import com.mobilerobots.Aria.ArRobot;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import robot.PioneerRobot;
@@ -9,40 +10,41 @@ public class DirectionController {
 
     private int degrees = 0;
     private int meters = 0;
+    private ArRobot robot = PioneerRobot.getRobot();
 
     @RequestMapping("/left")
     public Direction turnLeft() {
-        PioneerRobot.getRobot().lock();
+        robot.lock();
         degrees += 45;
-        PioneerRobot.getRobot().setHeading(degrees);
-        PioneerRobot.getRobot().unlock();
+        robot.setHeading(degrees);
+        robot.unlock();
         return new Direction("left");
     }
 
     @RequestMapping("/right")
     public Direction turnRight() {
-        PioneerRobot.getRobot().lock();
+        robot.lock();
         degrees -= 45;
-        PioneerRobot.getRobot().setHeading(degrees);
-        PioneerRobot.getRobot().unlock();
+        robot.setHeading(degrees);
+        robot.unlock();
         return new Direction("right");
     }
 
     @RequestMapping("/forward")
     public Direction moveForward() {
-        PioneerRobot.getRobot().lock();
+        robot.lock();
         meters += 1000;
-        PioneerRobot.getRobot().move(meters);
-        PioneerRobot.getRobot().unlock();
+        robot.move(meters);
+        robot.unlock();
         return new Direction("forward");
     }
 
     @RequestMapping("/backward")
     public Direction moveBackward() {
-        PioneerRobot.getRobot().lock();
+        robot.lock();
         meters -= 1000;
-        PioneerRobot.getRobot().move(meters);
-        PioneerRobot.getRobot().unlock();
+        robot.move(meters);
+        robot.unlock();
         return new Direction("backward");
     }
 

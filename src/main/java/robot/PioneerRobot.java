@@ -1,8 +1,8 @@
 package robot;
 
-import aria.ArRobot;
-import aria.ArSimpleConnector;
-import aria.Aria;
+import com.mobilerobots.Aria.ArRobot;
+import com.mobilerobots.Aria.ArSimpleConnector;
+import com.mobilerobots.Aria.Aria;
 
 public class PioneerRobot {
 
