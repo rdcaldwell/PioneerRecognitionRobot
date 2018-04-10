@@ -57,15 +57,6 @@
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-annotations-api:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.3" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.11" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/commons-collections4-4.1/commons-collections4-4.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
   <component name="TestModuleProperties" production-module="RestClient_main" />
 </module>
