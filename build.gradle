@@ -24,7 +24,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile files('C:/Program Files/MobileRobots/Aria/java/Aria.jar')
+    compile files('/home/pi/Downloads/ARIA-src-2.9.4/java/Aria.jar')
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')

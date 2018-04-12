@@ -6,10 +6,21 @@ import com.mobilerobots.Aria.Aria;
 
 public class PioneerRobot {
 
-    private static ArRobot robot = new ArRobot();
+    static {
+        try {
+            System.loadLibrary("AriaJava");
+        }
+        catch (UnsatisfiedLinkError e) {
+            System.err.println("libAriaJava failed to load");
+            System.exit(1);
+        }
+    }
+
+    private static ArRobot robot;
 
     public PioneerRobot(String[] argv) {
         Aria.init();
+        robot = new ArRobot();
         ArSimpleConnector conn = new ArSimpleConnector(argv);
 
         if(!Aria.parseArgs())

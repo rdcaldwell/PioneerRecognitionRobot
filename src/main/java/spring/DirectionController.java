@@ -13,10 +13,10 @@ public class DirectionController {
 
     private int degrees = 0;
     private int meters = 0;
-    private ArRobot robot = PioneerRobot.getRobot();
 
     @RequestMapping("/left")
     public Direction turnLeft() {
+        ArRobot robot = PioneerRobot.getRobot();
         robot.lock();
         degrees += 45;
         robot.setHeading(degrees);
@@ -26,6 +26,7 @@ public class DirectionController {
 
     @RequestMapping("/right")
     public Direction turnRight() {
+        ArRobot robot = PioneerRobot.getRobot();
         robot.lock();
         degrees -= 45;
         robot.setHeading(degrees);
@@ -35,6 +36,7 @@ public class DirectionController {
 
     @RequestMapping("/forward")
     public Direction moveForward() {
+        ArRobot robot = PioneerRobot.getRobot();
         robot.lock();
         meters += 1000;
         robot.move(meters);
@@ -44,6 +46,7 @@ public class DirectionController {
 
     @RequestMapping("/backward")
     public Direction moveBackward() {
+        ArRobot robot = PioneerRobot.getRobot();
         robot.lock();
         meters -= 1000;
         robot.move(meters);
