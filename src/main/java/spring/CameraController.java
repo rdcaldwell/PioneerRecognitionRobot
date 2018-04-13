@@ -1,7 +1,5 @@
 package spring;
 
-import com.hopding.jrpicam.RPiCamera;
-import com.hopding.jrpicam.exceptions.FailedToRunRaspistillException;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.*;
@@ -26,21 +24,8 @@ public class CameraController {
     @RequestMapping("/captureImage")
     public String captureImage() {
         RestTemplate rest = new RestTemplate();
-        RPiCamera piCamera = null;
 
-        try {
-            piCamera = new RPiCamera("../../resources/images");
-        } catch (FailedToRunRaspistillException ioe) {
-            System.err.println("Error getting jpg");
-        }
-
-        try {
-            piCamera.takeStill("temp.jpg");
-        } catch (Exception ioe) {
-            System.err.println("Error getting jpg");
-        }
-
-        Resource image = new FileSystemResource("../../resources/images/temp.jpg");
+        Resource image = new FileSystemResource("/tmp/mjpg/test.jpg");
 
         MultiValueMap<String, Object> parts = new LinkedMultiValueMap<>();
         parts.add("Content-Type", MediaType.IMAGE_JPEG);
