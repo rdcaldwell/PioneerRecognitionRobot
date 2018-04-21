@@ -17,7 +17,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
-@CrossOrigin(origins = Server.WEB_LOCAL)
+@CrossOrigin(origins = Server.WEB_HEROKU)
 @RestController
 public class CameraController {
 
@@ -32,7 +32,7 @@ public class CameraController {
         parts.add("image", image);
 
         ResponseEntity<String> response = rest.exchange(
-                Server.IMAGE_LOCAL + "/api/image/recognize",
+                Server.IMAGE_HEROKU + "/api/image/recognize",
                 HttpMethod.POST,
                 new HttpEntity<MultiValueMap<String, Object>>(parts),
                 String.class);

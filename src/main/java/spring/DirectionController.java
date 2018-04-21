@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import robot.PioneerRobot;
 import utils.Server;
 
-@CrossOrigin(origins = Server.WEB_LOCAL)
+@CrossOrigin(origins = Server.WEB_HEROKU)
 @RestController
 public class DirectionController {
 
     private int degrees = 0;
-    private int meters = 0;
 
     @RequestMapping("/left")
     public Direction turnLeft() {
@@ -38,8 +37,7 @@ public class DirectionController {
     public Direction moveForward() {
         ArRobot robot = PioneerRobot.getRobot();
         robot.lock();
-        meters += 1000;
-        robot.move(meters);
+        robot.move(1000);
         robot.unlock();
         return new Direction("forward");
     }
@@ -48,8 +46,7 @@ public class DirectionController {
     public Direction moveBackward() {
         ArRobot robot = PioneerRobot.getRobot();
         robot.lock();
-        meters -= 1000;
-        robot.move(meters);
+        robot.move(-1000);
         robot.unlock();
         return new Direction("backward");
     }
